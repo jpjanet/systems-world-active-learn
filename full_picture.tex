@@ -55,6 +55,7 @@
 \node[relationbox,rotate=60] (R-\xcr-4a) at ({\xfr-0.4},{(-3.5)*\ysep+\ytop - 2.5}){};
 \node[relationbox,rotate=-60] (R-\xcr-4b) at ({\xmr+0.4},{(-3.5)*\ysep+\ytop - 2.5}){};
 \node[relationbox] (R-\xcr-4c) at (\xcr,{(-3.5)*\ysep+\ytop }){};
+
 %% watch out for naming of these nodes!
 \node[statementbox] (S-\xfr-4a) at (\xmr,{(-3.5)*\ysep+\ytop}){};
 \node[statementbox] (S-\xfr-4b) at (\xfr,{(-3.5)*\ysep+\ytop}){}; 
@@ -67,24 +68,29 @@
 \node[statementbox] (S-\xfl-4b) at (\xfl,{(-4)*\ysep+\ytop}){}; 
 \node[statementbox] (S-\xml-4) at (\xml,{(-3.5)*\ysep+\ytop}){}; 
 
-%% central items
+%%% central items
  \node[relationbox] (center) at ({0.5*(\xmin + \xbound)},{(-3.5)*\ysep+\ytop}){};
  \node[relationbox, rotate=-90] (F-GLOB) at ({0.5*(\xmin + \xbound)},{(-4.15)*\ysep+\ytop}){}; 
   \node[relationbox] (center_top) at ({0.5*(\xmin + \xbound)},{(-1)*\ysep+\ytop}){};
  \node[relationbox, rotate=90] (F-GLOB_TOP) at ({0.5*(\xmin + \xbound)},{(-0.375)*\ysep+\ytop}){}; 
  \node[statementbox] (S-GLOB) at ({0.5*(\xmin + \xbound)},{(-5)*\ysep+\ytop}){};
  \node[statementbox] (S-GLOB_TOP) at ({0.5*(\xmin + \xbound)},{(0.5)*\ysep+\ytop}){};
-%%% statements
-%% row one left
+ 
+% 
+ 
+% 
+% 
+%%%% statements
+%%% row one left
 \node[statement,fill=\fixedboxcol,fill opacity = \fopac,text opacity = 1] (FS-\xfl-1) at (S-\xfl-1){$\xstar$ is a \textbf{local min} of $f\left(x\right)$};
 \node[relation,fill=\fixedboxcol,fill opacity = \fopac,text opacity = 1] (FR-\xcl-1) at (R-\xcl-1){\huge$\implies$};
-
-
-%% row two left
+%
+%
+%%% row two left
 \node[relation,fill=\fixedboxcol,fill opacity = \fopac,text opacity = 1] (FR-\xcl-2) at (R-\xcl-2){\huge $\impliedby$};
-\node[statement,fill=\fixedboxcol,fill opacity = \fopac,text opacity = 1] (FS-\xml-2) at (S-\xml-2){$\xstar$ is a \textbf{\color{red} strict \color{black}{}local max} of $f\left(x\right)$};
-
-%% row three left
+\node[statement,fill=\fixedboxcol,fill opacity = \fopac,text opacity = 1] (FS-\xml-2) at (S-\xml-2){$\xstar$ is a \textbf{local max} of $f\left(x\right)$};
+%
+%%% row three left
 \node[statement,fill=\fixedboxcol,fill opacity = \fopac,text opacity = 1] (FS-\xfl-3) at (S-\xfl-3){$\Hess{\xstar}$ is \textbf{p.s.d.}};
 \node[statement,fill=\fixedboxcol,fill opacity = \fopac,text opacity = 1] (FS-\xml-3) at (S-\xml-3){$\xstar$ is a \textbf{local min} of $f\left(x\right)$};
 
@@ -109,16 +115,16 @@
 \node[relation,fill=\fixedboxcol,fill opacity = \fopac,text opacity = 1,rotate=-10] (FR-\xcr-3b) at (R-\xcr-3b){\huge$\implies$};
 \node[statement,fill=\fixedboxcol,fill opacity = \fopac,text opacity = 1] (FS-\xfr-3a) at (S-\xfr-3a){$f\left(x\right)$ is convex  $\forall x \in \mathbb{R}^{n}$};
 
-
-
-
-%% row four right
+%
+%
+%
+%%% row four right
 \node[relation,fill=\fixedboxcol,fill opacity = \fopac,rotate=60,text opacity = 1] (FR-\xcr-4a) at (R-\xcr-4a){\huge $\iff$};
 \node[relationbox,fill=\fixedboxcol,fill opacity = \fopac,rotate=-60,text opacity = 1] (FR-\xcr-4b) at (R-\xcr-4b){\huge $\iff$};
 \node[statement,fill=\fixedboxcol,fill opacity = \fopac,text opacity = 1] (FS-\xfr-4c) at (S-\xfr-4c){$\Hess{x}$ is \textbf{p.s.d.}  $\forall x \in \mathbb{R}^{n}$};
-
-
-%% global part
+%
+%
+%%% global part
 \node[relationbox,fill=\fixedboxcol,fill opacity = \fopac,text opacity = 1] (FR-center) at (center){\huge $+$};
 \node[relationbox,fill=\fixedboxcol,fill opacity = \fopac,text opacity = 1] (FR-center_top) at (center_top){\huge $+$};
 \path[draw, ultra thick, gray] (S-\xml-4) -- (FR-center) {}; 
@@ -131,7 +137,7 @@
 %% will need a seperate document that assigns these seperately
 \node[statement,fill=\answerboxcola,fill opacity = \fopac,text opacity = 1] (FS-\xml-1) at (S-\xml-1){$\nabla f\left(\xstar\right)=0$};
 \node[relation,fill=\answerboxcolc,fill opacity = \fopac,text opacity = 1] (FR-\xcl-3) at (R-\xcl-3){\huge $\impliedby$};
-\node[statement,fill=\answerboxcold,fill opacity = \fopac,text opacity = 1] (FS-\xfl-2) at (S-\xfl-2){\small  $\lambda_i  < 0$, \\ $\forall\lambda_i \in \text{eig}\left(\Hess{\xstar}\right) $ };
+\node[statement,fill=\answerboxcold,fill opacity = \fopac,text opacity = 1] (FS-\xfl-2) at (S-\xfl-2){\small  $\lambda_i  \leq 0$, \\ $\forall\lambda_i \in \text{eig}\left(\Hess{\xstar}\right) $ };
 \node[statement,fill=\answerboxcola,fill opacity = \fopac,text opacity = 1] (FS-\xfl-4b) at (S-\xfl-4b){$\Hess{\xstar}$ is \textbf{p.d.}};
 \node[statement,fill=\answerboxcolb,fill opacity = \fopac,text opacity = 1] (FS-\xmr-1) at (S-\xmr-1){$f\left(x\right)$ is convex $\forall x \in \mathbb{R}^{n}$};
 \node[statement,fill=\answerboxcold,fill opacity = \fopac,text opacity = 1] (FS-\xfr-2) at (S-\xfr-2){$\Hess{x}$ is \textbf{n.s.d.} $\forall x \in \mathbb{R}^{n}$};
@@ -143,8 +149,8 @@
 \node[relationbox,fill=\answerboxcold,fill opacity = \fopac,text opacity = 1,rotate=90] (FR-GLOB) at (F-GLOB){\huge $\impliedby$};
 \node[relationbox,fill=\answerboxcola,fill opacity = \fopac,text opacity = 1] (FR-\xcr-4c) at (R-\xcr-4c){\huge $\iff$};
 \node[relationbox,fill=\answerboxcolc,fill opacity = \fopac,text opacity = 1,rotate=90] (FR-GLOB_TOP) at (F-GLOB_TOP){\huge $\implies$};
-\node[statement,fill=\answerboxcolb,fill opacity = \fopac,text opacity = 1] (FS-GLOB_TOP) at (S-GLOB_TOP){$\xstar$ is \textbf{global min} of $f\left(x\right)$};
-\node[statement,fill=\answerboxcolc,fill opacity = \fopac,text opacity = 1] (FS-GLOB) at (S-GLOB){$\xstar$ is \textbf{global max} of $f\left(x\right)$};
+\node[statement,fill=\answerboxcolb,fill opacity = \fopac,text opacity = 1] (FS-GLOB) at (S-GLOB){$\xstar$ is \textbf{global min} of $f\left(x\right)$};
+\node[statement,fill=\answerboxcolc,fill opacity = \fopac,text opacity = 1] (FS-GLOB_TOP) at (S-GLOB_TOP){$\xstar$ is \textbf{global max} of $f\left(x\right)$};
 
 \end{tikzpicture}
 \thispagestyle{empty}
