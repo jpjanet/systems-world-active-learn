@@ -1,0 +1,67 @@
+
+
+\thispagestyle{empty}
+\begin{tikzpicture}[x = 1cm, y=1cm]
+%%% parameters
+\def\xfr{23}
+\def\xmr{17}
+\def\xfl{3}
+\def\xml{9}
+\def\ytop{16}
+\def\ysep{3}
+\def\fopac{0.0} % fill opacity
+\def\shopac{0.1} % shade opacity
+\def\xbound{20}
+\def\ybound{26}
+\def\ymin{0}
+\def\xmin{0}
+\def\shadea{purple!50!blue}
+\def\shadeb{green!50!yellow}
+\def\shadec{red!50!yellow}
+\def\shaded{green!75!red}
+\def\fixedboxcol{gray!20!}
+\def\answerboxcola{blue!50!}
+\def\answerboxcolb{darkgreen!50!}
+\def\answerboxcolc{purple!50!}
+\def\answerboxcold{yellow!50!}
+%%% other defs
+\def\xcl{{(0.5*\xml+ 0.5*\xfl)}}
+\def\xcr{{(0.5*\xmr+ 0.5*\xfr)}}
+%% bounding box
+\draw[ultra thick, use as bounding box](\xmin,\ymin) rectangle (\xbound,\ybound);
+
+\foreach \namey / \y in {1,2,3,4,5,6,7}
+	\foreach \namex / \x in {1,2,3,4,5,6}
+	{
+        	\node[statementbox,draw, ultra thick] (S-\namey-\namex) at ({(\x-1)*3+1.5},{(\y-1)*2.15+1.5}){};
+        	\node[relationbox,draw, ultra thick] (R-\namey-\namex) at ({(\x-1)*3+1.5},{(\y-1)*0.805+15.9}){};
+      }
+
+
+%% 
+%%%%% statements
+%%%% row one left
+\foreach \namex / \x in {1,2,3,4,5,6}{
+	\node[draw, ultra thick,statement,fill=\answerboxcola,fill opacity = \fopac,text opacity =1] (FS-23-TOP) at (S-1-\namex){$\nabla f\left(\xstar\right)=0$};
+	\node[draw, ultra thick,statement,fill=\answerboxcola,fill opacity = \fopac,text opacity =1] (FS-20-TOP) at (S-2-\namex){$\Hess{\xstar}$ is \textbf{p.s.d.}};
+	\node[draw, ultra thick,statement,fill=\answerboxcola,fill opacity = \fopac,text opacity =1] (FS-17a-TOP) at (S-3-\namex){$\nabla f\left(\xstar\right)=0$};
+	\node[draw, ultra thick,statement,fill=\answerboxcola,fill opacity = \fopac,text opacity =1] (FS-17b-TOP) at (S-4-\namex){$\Hess{\xstar}$ is \textbf{p.d.}};
+	
+	\node[draw, ultra thick,statement,fill=\answerboxcola,fill opacity = \fopac,text opacity =1] (FS-3-TOP) at (S-5-\namex){\small All $\lambda_i$ of $\Hess{x}$ are $\geq 0$,\\ $\forall x \in \mathbb{R}^{n}$};
+	\node[draw, ultra thick,statement,fill=\answerboxcola,fill opacity = \fopac,text opacity =1] (FS-9-TOP) at (S-6-\namex){$\Hess{x}$ is \textbf{p.s.d.} $\forall x\in \mathbb{R}^{n}$};
+	\node[draw, ultra thick,statement,fill=\answerboxcola,fill opacity = \fopac,text opacity =1] (FS-center) at (S-7-\namex){$\xstar$ is \textbf{global min} of $f\left(x\right)$};
+	
+	%
+	\node[draw, ultra thick,relation,fill=\answerboxcolb,fill opacity = \fopac,text opacity =1] (FR-23-TOP) at (R-1-\namex){\huge $\implies$};
+	\node[draw, ultra thick,relation,fill=\answerboxcolb,fill opacity = \fopac,text opacity =1] (FR-20-TOP) at (R-2-\namex){\huge $\implies$};
+	\node[draw, ultra thick,relation,fill=\answerboxcolb,fill opacity = \fopac,text opacity =1] (FR-17a-TOP) at (R-3-\namex){\huge $\impliedby$};
+	
+	\node[draw, ultra thick,relation,fill=\answerboxcolb,fill opacity = \fopac,text opacity =1] (FR-centerb) at (R-4-\namex){\huge $\implies$};
+	
+	\node[draw, ultra thick,relation,fill=\answerboxcolb,fill opacity = \fopac,text opacity =1] (FR-9-BOT) at (R-5-\namex){\huge $\iff$};
+	\node[draw, ultra thick,relation,fill=\answerboxcolb,fill opacity = \fopac,text opacity =1] (FR-3-BOT) at (R-6-\namex){\huge $\iff$};
+	\node[draw, ultra thick,relation,fill=\answerboxcolb,fill opacity = \fopac,text opacity =1] (R-7-1) at (R-7-\namex){\huge $\iff$};
+}
+
+\end{tikzpicture}
+
